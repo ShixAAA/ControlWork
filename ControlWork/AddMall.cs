@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace ControlWork
         private List<Mall> malls = ShoppingMalls.db.Mall.ToList();
         public static ModelEF db = new ModelEF();
         private Mall CurrentMall;
-
+        public int currentId;
         public AddMall()
         {
             CurrentMall = new Mall();
@@ -80,9 +81,8 @@ namespace ControlWork
         private void buttonReChange_Click(object sender, EventArgs e)
         {
             ShoppingMalls shoppingMalls = new ShoppingMalls(CurrentMall);
-            Mall NMall = new Mall();
+            Mall NMall = db.Mall.Find(currentId);
  //         CurrentMall.ID = shoppingMalls.CurrentMall.ID;
-            NMall.ID = Plus1();
             NMall.Name = textBoxName.Text;
             NMall.Status = textBoxStatus.Text;
             NMall.Town = textBoxTown.Text;
@@ -93,10 +93,9 @@ namespace ControlWork
             try
             {
 
-                ShoppingMalls.db.Mall.Add(NMall);
-                
+                ShoppingMalls.db.Mall.AddOrUpdate(NMall);
+
                 ShoppingMalls.db.SaveChanges();
-                db.Mall.Remove(CurrentMall);
             }
             catch (Exception ex)
             {

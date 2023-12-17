@@ -56,6 +56,7 @@ namespace ControlWork
             if (result == DialogResult.Yes)
             {
                 AddMall addMall = new AddMall();
+                addMall.currentId = CurrentMall.ID;
                 addMall.label4.Text = "Изменение ТЦ";
                 addMall.buttonAdd.Text = "Изменить";
 
