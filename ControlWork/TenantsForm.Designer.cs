@@ -28,13 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonChange = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewTenants = new System.Windows.Forms.DataGridView();
             this.buttonBack = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.tenantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTenants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonDelete
@@ -47,6 +55,7 @@
             this.buttonDelete.TabIndex = 22;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonChange
             // 
@@ -58,6 +67,7 @@
             this.buttonChange.TabIndex = 21;
             this.buttonChange.Text = "Изменить";
             this.buttonChange.UseVisualStyleBackColor = false;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // buttonAdd
             // 
@@ -69,11 +79,20 @@
             this.buttonAdd.TabIndex = 20;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // dataGridViewTenants
             // 
+            this.dataGridViewTenants.AutoGenerateColumns = false;
             this.dataGridViewTenants.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridViewTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTenants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.adressDataGridViewTextBoxColumn,
+            this.rentDataGridViewTextBoxColumn});
+            this.dataGridViewTenants.DataSource = this.tenantsBindingSource;
             this.dataGridViewTenants.Location = new System.Drawing.Point(8, 55);
             this.dataGridViewTenants.Name = "dataGridViewTenants";
             this.dataGridViewTenants.Size = new System.Drawing.Size(693, 215);
@@ -104,6 +123,41 @@
             this.label3.Text = "Арендаторы";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tenantsBindingSource
+            // 
+            this.tenantsBindingSource.DataSource = typeof(ControlWork.DataModel.Tenants);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            // 
+            // adressDataGridViewTextBoxColumn
+            // 
+            this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress";
+            this.adressDataGridViewTextBoxColumn.HeaderText = "Adress";
+            this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
+            // 
+            // rentDataGridViewTextBoxColumn
+            // 
+            this.rentDataGridViewTextBoxColumn.DataPropertyName = "Rent";
+            this.rentDataGridViewTextBoxColumn.HeaderText = "Rent";
+            this.rentDataGridViewTextBoxColumn.Name = "rentDataGridViewTextBoxColumn";
+            // 
             // TenantsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,7 +173,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "TenantsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.TenantsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTenants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenantsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +188,11 @@
         private System.Windows.Forms.DataGridView dataGridViewTenants;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource tenantsBindingSource;
     }
 }

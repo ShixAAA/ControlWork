@@ -25,5 +25,25 @@ namespace ControlWork
             menuAdmin.Show();
             this.Close();
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("В разработке :)");
+        }
+
+        private void TenantsForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("В разработке :)");
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("В разработке :)");
+        }
     }
 }
