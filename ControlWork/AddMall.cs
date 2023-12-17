@@ -92,8 +92,11 @@ namespace ControlWork
 
             try
             {
+
                 ShoppingMalls.db.Mall.Add(NMall);
+                
                 ShoppingMalls.db.SaveChanges();
+                db.Mall.Remove(CurrentMall);
             }
             catch (Exception ex)
             {
