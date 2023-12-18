@@ -13,6 +13,7 @@ namespace ControlWork
 {
     public partial class TenantsForm : Form
     {
+        private ModelEF db = new ModelEF();
         public TenantsForm()
         {
             InitializeComponent();
@@ -33,7 +34,8 @@ namespace ControlWork
 
         private void TenantsForm_Load(object sender, EventArgs e)
         {
-
+            dataGridViewTenants.DataSource = db.Mall.ToList();
+            if (db.Mall.ToList().Count == 0) return;
         }
 
         private void buttonChange_Click(object sender, EventArgs e)
